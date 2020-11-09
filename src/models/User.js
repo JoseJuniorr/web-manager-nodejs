@@ -24,6 +24,9 @@ const UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "posts",
   },
+  bio: {
+    type: String,
+  },
   role: {
     type: String,
     default: "basic",

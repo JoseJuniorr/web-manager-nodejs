@@ -8,7 +8,7 @@ UserController.renderLoginPage = (req, res, next) => {
 };
 
 UserController.postLogin = passport.authenticate("local", {
-  failureRedirect: "/users/login",
+  failureRedirect: "/users/login?fail=true",
   successRedirect: "/adm/dashboard",
   failureFlash: true,
 });
@@ -62,7 +62,7 @@ UserController.logout = (req, res, next) => {
 UserController.renderProfile = async (req, res, next) => {
   const profileUser = await User.findById(req.params.id);
 
-  console.log(profileUser);
+  // console.log(profileUser);
 
   res.render("users/profile", { title: "Profile", profileUser: profileUser });
 };
