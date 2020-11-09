@@ -1,15 +1,23 @@
 <% layout ('layouts/adm') -%>
 
 <div class="container">
-  <div class="card mt-5">
-    <div class="card-header">
-      <h1>Profile User</h1>
-      <img src="<%= profileUser.image%>" alt="" width="90px;" />
-      <h3><%= profileUser.name%></h3>
-    </div>
-    <div class="card-body">
-      <p>E-mail: <%= profileUser.email%></p>
-      <p>Tipo de usuário: <%= profileUser.role%></p>
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <div class="card mt-5">
+        <div class="card-header">
+          <img
+            src="<%= profileUser.image%>"
+            alt=""
+            width="90px;"
+            class="mb-2"
+          />
+          <h3><%= profileUser.name%></h3>
+        </div>
+        <div class="card-body">
+          <p class="mb-1">E-mail: <%= profileUser.email%></p>
+          <p>Tipo de usuário: <%= profileUser.role%></p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
