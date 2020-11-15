@@ -3,8 +3,8 @@ module.exports = {
     if (req.isAuthenticated()) {
       return next();
     } else {
-      req.flash("error_msg", "É necessário estar autenticado!");
-      res.redirect("/users/login");
+      req.flash("error_msg", "Operação não permitida!");
+      res.redirect("/users/login?fail=true");
     }
   },
 };
