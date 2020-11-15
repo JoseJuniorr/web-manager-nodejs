@@ -1,3 +1,45 @@
 <% layout ('layouts/main') -%>
 
-<h1>Posts index</h1>
+<!-- Page Header -->
+<header
+  class="masthead"
+  style="background-image: url('images/allposts/typewriter.jpg')"
+>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="page-heading">
+          <h1>Todos os Posts</h1>
+          <span class="subheading">This is what I do.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <% posts.forEach(function(post) { %>
+      <div class="post-preview">
+        <a href="/posts/show/<%= post.slug%>/<%= post.id%>">
+          <h2 class="post-title"><%- post.title%></h2>
+          <h3 class="post-subtitle"><%- post.description%></h3>
+        </a>
+        <p class="post-meta">
+          Por
+          <a href="#"><%= post.author.name%></a> em <%= moment(
+          post.createdAt).format('ll') %>
+        </p>
+      </div>
+      <% }); %>
+      <hr />
+
+      <!-- Pager -->
+      <div class="clearfix">
+        <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>

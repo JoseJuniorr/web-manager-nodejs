@@ -1,0 +1,35 @@
+<% layout ('layouts/main') -%>
+
+<!-- Page Header -->
+<header
+  class="masthead"
+  style="background-image: url('<%=post.images[0].url %>' )"
+>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-heading">
+          <h1><%= post.title%></h1>
+          <h2 class="subheading"><%- post.description%></h2>
+          <span class="meta"
+            >Por
+            <a href="#"><%= post.author.name%></a>
+            em <%= moment( post.createdAt).format('ll') %></span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto"><%- post.content%></div>
+    </div>
+  </div>
+</article>
+
+<hr />
