@@ -29,12 +29,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles/adm.css">
+    <link rel="stylesheet" href="/styles/adm.css" />
 
     <title><%= title%></title>
   </head>
   <body>
-    <% include ../partials/navbar-adm %> <%-body -%>
+    <% include ../partials/navbar-adm %> <% include ../partials/flash-messages
+    %> <%-body -%>
 
     <!-- JQuery -->
     <script
@@ -57,5 +58,18 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"
     ></script>
     <!-- <script src="/js/main.js"></script> -->
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>
+      tinymce.init({
+        selector: "textarea",
+
+        external_plugins: {
+          saveToPdf:
+            "https://cdn.rawgit.com/Api2Pdf/api2pdf.tinymce/master/save-to-pdf/dist/save-to-pdf/plugin.js",
+        },
+        toolbar: "saveToPdf",
+        saveToPdfHandler: "/REPLACE-WITH-HANDLER-URL",
+      });
+    </script>
   </body>
 </html>
