@@ -15,7 +15,7 @@ body {
   justify-content: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: rgb(62, 18, 104);
+  background-color: rgb(252, 252, 252);
 }
 
 .form-login {
@@ -23,7 +23,7 @@ body {
   max-width: 450px;
   padding: 3rem;
   margin: 0 auto;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(245, 245, 245);
   /* border-radius: 8px; */
 }
 
