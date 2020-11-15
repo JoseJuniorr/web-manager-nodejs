@@ -26,4 +26,6 @@ router.get("/logout", logout);
 
 router.get("/profile/:id", isAuthenticated, renderProfile);
 
+router.post("/profile");
+
 module.exports = router;

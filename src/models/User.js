@@ -6,6 +6,10 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  username: {
+    type: String,
+    required: true,
+  },
   image: {
     type: String,
     default: "/images/profile/user.png",
