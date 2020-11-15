@@ -12,10 +12,15 @@ const passport = require("passport");
 const moment = require("moment");
 moment.locale("pt-br");
 
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users.routes");
-const admRouter = require("./routes/adm.routes");
+//pages
+const indexRouter = require("./routes/home.routes");
+const sobreRouter = require("./routes/sobre.routes");
+const contatoRouter = require("./routes/contato.routes");
 const postsRouter = require("./routes/posts.routes");
+//user
+const usersRouter = require("./routes/users.routes");
+//adm
+const admRouter = require("./routes/adm.routes");
 
 const app = express();
 
@@ -68,14 +73,17 @@ app.use(function (req, res, next) {
   res.locals.success_msg = req.flash("success_msg");
   res.locals.error_msg = req.flash("error_msg");
   res.locals.user = req.user || null;
-  res.locals.title = "Web Nodejs";
+  res.locals.title = "Shop";
+  res.locals.moment = moment;
   next();
 });
 
 app.use("/", indexRouter);
+app.use("/sobre", sobreRouter);
+app.use("/contato", contatoRouter);
+app.use("/posts", postsRouter);
 app.use("/users", usersRouter);
 app.use("/adm", admRouter);
-app.use("/posts", postsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
