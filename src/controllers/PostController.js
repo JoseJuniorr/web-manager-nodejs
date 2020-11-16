@@ -50,11 +50,9 @@ PostController.createPost = async (req, res) => {
   req.body.images = [];
 
   for (const file of req.files) {
-    const image = cloudinary.v2.uploader.upload(file.path);
-
-    req.body.images.push({
-      url: (await image).secure_url,
-      public_id: (await image).public_id,
+    req.body.post.images.push({
+      url: file.secure_url,
+      public_id: file.public_id,
     });
   }
 
